@@ -1,0 +1,41 @@
+Apache-Kafka
+1.Real-Time Data Streaming
+Data Ingestion: Kafka can ingest large volumes of data from various sources (like logs, sensors, or databases) in real time.
+Event Streaming: It allows the continuous capture and processing of events or streams of data, making it ideal for event-driven architectures.
+
+2.Data Integration
+ETL Pipelines: Kafka is used to create efficient Extract, Transform, Load (ETL) pipelines by moving data between different systems, such as databases, cloud storage, or analytics platforms.
+Data Replication: It can replicate data between different data centers or systems, ensuring consistency and availability.
+
+3.Real-Time Analytics
+Kafka streams can be used for real-time analytics, such as monitoring, alerting, or generating metrics. It enables real-time processing of data as it arrives, allowing for immediate insights and actions.
+
+4.Microservices Communication
+Kafka can be used to facilitate communication between microservices by serving as a centralized log where each microservice can publish and consume events. This enables loose coupling between services.
+
+5.IoT Data Streaming
+It is widely used in IoT applications to handle the massive influx of data from sensors and devices, processing it in real-time for analytics or actions.
+
+
+
+Apache_Kafka Installation on Linux
+
+sudo apt update
+sudo apt install openjdk-11-jdk -y
+
+java -version
+
+sudo useradd -m -s /bin/bash kafka
+sudo passwd kafka
+su - kafka
+su - kafka
+sudo -i -u kafka
+
+
+wget https://downloads.apache.org/kafka/3.8.0/kafka_2.13-3.8.0.tgz
+
+bin/zookeeper-server-start.sh config/zookeeper.properties
+
+to run backgroud
+nohup bin/zookeeper-server-start.sh config/zookeeper.properties > zookeeper.log 2>&1 &
+
