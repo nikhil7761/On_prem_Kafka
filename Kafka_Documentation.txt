@@ -34,8 +34,50 @@ sudo -i -u kafka
 
 wget https://downloads.apache.org/kafka/3.8.0/kafka_2.13-3.8.0.tgz
 
+sudo mv kafka_2.13-3.8.0 /usr/local/kafka
+tar -xzf kafka_2.13-3.8.0.tgz 
+
+cd /usr/local/kafka
 bin/zookeeper-server-start.sh config/zookeeper.properties
+bin/zookeeper-server-start.sh config/zookeeper.properties &	
+
+go inside the /usr/local/kafka/bin & run
+./kafka-server-start.sh ../config/server.properties
+ps aux | grep kafka
+
+
+nano /usr/local/kafka/config/server.properties
+
 
 to run backgroud
 nohup bin/zookeeper-server-start.sh config/zookeeper.properties > zookeeper.log 2>&1 &
+
+cd /usr/local/kafka
+
+
+TESTING  cd /usr/local/kafka
+
+For Creating the topic....
+bin/kafka-topics.sh --create --topic test-topic --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+
+bin/kafka-console-producer.sh --topic test-topic --bootstrap-server localhost:9092
+
+bin/kafka-console-producer.sh --topic test-topic --bootstrap-server 13.234.77.234:9092
+
+
+>Hello Kafka!
+
+
+CONSUME MESSAGE
+
+bin/kafka-console-consumer.sh --topic test-topic --from-beginning --bootstrap-server localhost:9092
+
+bin/kafka-console-consumer.sh --topic test-topic --from-beginning --bootstrap-server 13.234.77.234:9092
+
+
+
+list of the topic
+bin/kafka-topics.sh --list --bootstrap-server 13.234.77.234:9092
+
+
 
